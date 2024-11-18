@@ -3,7 +3,7 @@ import { NavLink, useLoaderData } from 'react-router-dom';
 import FeedBack from '../FeedBack/FeedBack';
 // import BannerSlider from '../BannerSlider/BannerSlider';
 import BannerSlide from '../BannerSlide/BannerSlide';
-import campaignCard from '../CampaignCard/CampaignCard';
+import CampaignCard from '../CampaignCard/CampaignCard';
 // import Banner from '../Banner/Banner';
 
 const Home = () => {
@@ -18,7 +18,7 @@ const Home = () => {
       <BannerSlide></BannerSlide>
       <div className="mt-10 grid gap-6 lg:gap-12 grid-cols-1 md:grid-cols-2  lg:grid-cols-3">
         {campaignsData.slice(0, 6).map(campaign => (
-          <campaignCard campaign={campaign}></campaignCard>
+          <CampaignCard campaign={campaign}></CampaignCard>
         ))}
       </div>
       <button className="mx-auto block btn btn-primary mt-4">
