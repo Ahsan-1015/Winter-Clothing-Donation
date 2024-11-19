@@ -36,8 +36,8 @@ const Navbar = () => {
       {/* Navbar container */}
       <div className="w-11/12 2xl:w-10/12 max-w-[2500px] mx-auto flex justify-between items-center py-3">
         {/* Logo */}
-        <div className="animate__animated animate__fadeInLeft  animate__delay-Xs border-2 border-b-gray-600 border-r-gray-600 p-2">
-          <h1 className="text-3xl font-extrabold text-[#31363F]">
+        <div className="animate__animated animate__pulse animate__delay-Xs border-2 border-b-gray-600 border-r-gray-600 p-2">
+          <h1 className="text-xl md:text-3xl font-extrabold text-[#31363F]">
             <NavLink to="/">
               KIND <span className="text-yellow-500">WINTER</span>
             </NavLink>
@@ -108,7 +108,7 @@ const Navbar = () => {
             viewBox="0 0 24 24"
             strokeWidth="2"
             stroke="currentColor"
-            className="w-6 h-6"
+            className="w-8 h-8"
           >
             <path
               strokeLinecap="round"

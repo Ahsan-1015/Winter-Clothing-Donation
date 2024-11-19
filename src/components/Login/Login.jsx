@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { authContext } from '../AuthProvider/AuthProvider';
-import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const { handleGoogleLogin, handleLogin } = useContext(authContext);
@@ -49,6 +49,8 @@ const Login = () => {
         </div>
 
         <button type="submit">Log in</button>
+
+        <Link to="/register">Register</Link>
       </form>
       {error && (
         <p className="text-red-500">{error.split('/')[1].slice(0, 18)}</p>
