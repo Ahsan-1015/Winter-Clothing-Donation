@@ -100,7 +100,7 @@ const HowItWorks = () => {
           className="text-4xl md:text-5xl font-extrabold text-center text-black animate__animated animate__fadeInDown"
           data-aos="fade-up"
         >
-          How It Works
+          How It Works _
         </h2>
       </div>
       <p
@@ -114,18 +114,34 @@ const HowItWorks = () => {
       <div className="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-12 relative z-10">
         {/* Step 1: Instructions for Donation */}
         <div
-          className="bg-white p-8 rounded-2xl shadow-lg transform transition hover:scale-105 hover:shadow-2xl"
+          className="bg-white p-8 rounded-2xl shadow-lg transform transition hover:scale-105 hover:shadow-2xl hover:shadow-blue-400"
           data-aos="fade-right"
         >
-          <div
-            className="bg-blue-100 text-blue-700 w-16 h-16 flex items-center justify-center rounded-full text-3xl mb-6 animate__animated animate__zoomIn"
-            data-aos="zoom-in"
-          >
-            1
+          <div className="flex gap-5 items-center ">
+            <div
+              className="bg-blue-100 text-blue-700 w-16 h-16 flex items-center justify-center rounded-full text-3xl mb-6 animate__animated animate__zoomIn"
+              data-aos="zoom-in"
+            >
+              1
+            </div>
+
+            <img
+              className="w-20 h-20 mb-10 animate__jello animate_animated "
+              src="https://cdn-icons-png.flaticon.com/128/8926/8926281.png"
+              alt=""
+            />
           </div>
-          <h3 className="text-2xl font-semibold mb-4 text-blue-700">
-            Instructions for Donation
-          </h3>
+          <div className="flex gap-2 items-center ">
+            <h3 className="text-2xl font-semibold mb-4 text-blue-700 ">
+              Instructions for Donation
+            </h3>
+
+            <img
+              className="w-8 h-8 mb-4  animate__animated animate__zoomIn animate-spin"
+              src="https://cdn-icons-png.flaticon.com/128/535/535137.png"
+              alt=""
+            />
+          </div>
           <ol className="list-decimal list-inside space-y-3 text-gray-700">
             <li>
               Choose essential items to donate (e.g., jackets, blankets,
@@ -142,19 +158,35 @@ const HowItWorks = () => {
 
         {/* Step 2: Collection Points */}
         <div
-          className="bg-white p-8 rounded-2xl shadow-lg transform transition hover:scale-105 hover:shadow-2xl"
+          className="bg-white p-8 rounded-2xl shadow-lg transform transition hover:scale-105 hover:shadow-2xl hover:shadow-green-400"
           data-aos="zoom-in"
         >
-          <div
-            className="bg-green-100 text-green-700 w-16 h-16 flex items-center justify-center rounded-full text-3xl mb-6 animate__animated animate__zoomIn"
-            data-aos="zoom-in"
-          >
-            2
+          <div className="flex gap-5 items-center ">
+            <div
+              className="bg-green-100 text-green-700 w-16 h-16 flex items-center justify-center rounded-full text-3xl mb-6 animate__animated animate__zoomIn"
+              data-aos="zoom-in"
+            >
+              2
+            </div>
+
+            <img
+              className="w-20 h-20 mb-10"
+              src="https://cdn-icons-png.flaticon.com/128/8926/8926281.png"
+              alt=""
+            />
           </div>
-          <h3 className="text-2xl font-semibold mb-4 text-green-700">
-            Collection Points
-          </h3>
-          <ul className="space-y-3 text-gray-700">
+          <div className="flex gap-2 items-center ">
+            <h3 className="text-2xl font-semibold mb-4 text-green-700 ">
+              Collection Point
+            </h3>
+
+            <img
+              className="w-8 h-8 mb-4  animate__animated animate__zoomIn animate-spin"
+              src="https://cdn-icons-png.flaticon.com/128/535/535137.png"
+              alt=""
+            />
+          </div>
+          <ul className="space-y-3 text-gray-700 text-lg">
             <li>
               <strong>Dhaka:</strong> House 12, Road 5, Dhanmondi.
             </li>
@@ -172,19 +204,35 @@ const HowItWorks = () => {
 
         {/* Step 3: Supported Divisions */}
         <div
-          className="bg-white p-8 rounded-2xl shadow-lg transform transition hover:scale-105 hover:shadow-2xl"
+          className="bg-white p-8 rounded-2xl shadow-lg transform transition hover:scale-105 hover:shadow-2xl hover:shadow-purple-400"
           data-aos="fade-left"
         >
-          <div
-            className="bg-purple-100 text-purple-700 w-16 h-16 flex items-center justify-center rounded-full text-3xl mb-6 animate__animated animate__zoomIn"
-            data-aos="zoom-in"
-          >
-            3
+          <div className="flex gap-5 items-center ">
+            <div
+              className="bg-purple-100 text-purple-700 w-16 h-16 flex items-center justify-center rounded-full text-3xl mb-6 animate__animated animate__zoomIn"
+              data-aos="zoom-in"
+            >
+              3
+            </div>
+
+            <img
+              className="w-20 h-20 mb-10"
+              src="https://cdn-icons-png.flaticon.com/128/8926/8926281.png"
+              alt=""
+            />
           </div>
-          <h3 className="text-2xl font-semibold mb-4 text-purple-700">
-            Supported Divisions
-          </h3>
-          <ul className="grid grid-cols-2 gap-4 text-gray-700">
+          <div className="flex gap-2 items-center ">
+            <h3 className="text-2xl font-semibold mb-4 text-purple-700 ">
+              Supported Divisions
+            </h3>
+
+            <img
+              className="w-8 h-8 mb-4 animate__animated animate__zoomIn animate-spin"
+              src="https://cdn-icons-png.flaticon.com/128/535/535137.png"
+              alt=""
+            />
+          </div>
+          <ul className="grid grid-cols-2 gap-4 text-gray-700 cursor-pointer">
             {divisions.map((division, index) => (
               <li
                 key={index}

@@ -1,23 +1,18 @@
 import { NavLink, useLoaderData } from 'react-router-dom';
 
-import FeedBack from '../FeedBack/FeedBack';
-// import BannerSlider from '../BannerSlider/BannerSlider';
 import BannerSlide from '../BannerSlide/BannerSlide';
 import CampaignCard from '../CampaignCard/CampaignCard';
 import HowItWorks from '../HowItWorks/HowItWorks';
 import About from '../About/About';
 import Testimonials from '../Testimonials/Testimonials';
-// import Banner from '../Banner/Banner';
 
 const Home = () => {
   const campaigns = useLoaderData();
 
-  const { campaignsData, feedBackData } = campaigns;
+  const { campaignsData } = campaigns;
 
   return (
     <div className="">
-      {/* <Banner></Banner> */}
-      {/* <BannerSlider></BannerSlider> */}
       <BannerSlide></BannerSlide>
       <div
         data-aos="zoom-in-down"
@@ -46,11 +41,9 @@ const Home = () => {
       </button>
 
       <HowItWorks></HowItWorks>
-      <Testimonials></Testimonials>
 
       <About></About>
-
-      <FeedBack feedBackData={feedBackData}></FeedBack>
+      <Testimonials></Testimonials>
     </div>
   );
 };

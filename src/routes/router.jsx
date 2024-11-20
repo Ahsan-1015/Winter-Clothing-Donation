@@ -25,10 +25,7 @@ const router = createBrowserRouter([
           const campaignsRes = await fetch('/campaign.json');
           const campaignsData = await campaignsRes.json();
 
-          const feedBackRes = await fetch('/happyclients.json');
-          const feedBackData = await feedBackRes.json();
-
-          return { campaignsData, feedBackData };
+          return { campaignsData };
         },
       },
       {
