@@ -102,9 +102,11 @@
 import { useContext, useState } from 'react';
 import { authContext } from '../AuthProvider/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
+import { FaGoogle } from 'react-icons/fa';
 
 const Register = () => {
-  const { handleRegister, manageProfile } = useContext(authContext);
+  const { handleRegister, manageProfile, handleGoogleLogin } =
+    useContext(authContext);
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
@@ -144,6 +146,12 @@ const Register = () => {
       .catch(err => {
         setError(err.message);
       });
+  };
+
+  const googleLoginHandler = () => {
+    handleGoogleLogin().then(() => {
+      navigate('/');
+    });
   };
 
   return (
@@ -228,6 +236,15 @@ const Register = () => {
               Login here
             </Link>
           </p>
+        </div>
+        <div
+          onClick={googleLoginHandler}
+          className="mt-6 cursor-pointer animate__animated animate__backInLeft"
+        >
+          <div className="flex gap-2 bg-red-500 hover:bg-red-600 w-full items-center justify-center py-2 text-white font-semibold rounded-lg transition duration-300">
+            <FaGoogle className="text-2xl font-extrabold" />
+            <button>Log In with Google</button>
+          </div>
         </div>
       </div>
     </div>

@@ -1,9 +1,9 @@
 import { createBrowserRouter } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import MainLayout from '../components/MainLayout/MainLayout';
 import Home from '../components/Home/Home';
 import Campaign from '../components/Campaign/Campaign';
 import Dashboard from '../components/Dashboard/Dashboard';
-
 import Profile from '../components/Profile/Profile';
 import Details from '../components/Details/Details';
 import Login from '../components/Login/Login';
@@ -11,33 +11,53 @@ import Register from '../components/Register/Register';
 import PrivateRoute from '../components/PrivateRoute/PrivateRoute';
 import ErrorPage from '../components/ErrorPage/ErrorPage';
 import ForgotPassword from '../components/ForgotPassword/ForgotPassword';
+import UpdateProfile from '../components/UpdateProfile/UpdateProfile';
+import MyProfile from '../components/MyProfile/MyProfile';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <MainLayout></MainLayout>,
+    element: <MainLayout />,
     errorElement: <ErrorPage />,
     children: [
       {
         path: '/',
-        element: <Home></Home>,
+        element: (
+          <>
+            <Helmet>
+              <title>Home || Winter Clothing Donation</title>
+            </Helmet>
+            <Home />
+          </>
+        ),
         loader: async () => {
           const campaignsRes = await fetch('/campaign.json');
           const campaignsData = await campaignsRes.json();
-
           return { campaignsData };
         },
       },
       {
         path: '/campaigns',
-        element: <Campaign></Campaign>,
+        element: (
+          <>
+            <Helmet>
+              <title>Campaigns || Winter Clothing Donation</title>
+            </Helmet>
+            <Campaign />
+          </>
+        ),
         loader: () => fetch('/campaign.json'),
       },
       {
         path: '/dashboard',
         element: (
           <PrivateRoute>
-            <Dashboard></Dashboard>
+            <>
+              <Helmet>
+                <title>Dashboard || Winter Clothing Donation</title>
+              </Helmet>
+              <Dashboard />
+            </>
           </PrivateRoute>
         ),
       },
@@ -45,7 +65,12 @@ const router = createBrowserRouter([
         path: '/profile',
         element: (
           <PrivateRoute>
-            <Profile></Profile>
+            <>
+              <Helmet>
+                <title>Profile || Winter Clothing Donation</title>
+              </Helmet>
+              <Profile />
+            </>
           </PrivateRoute>
         ),
       },
@@ -53,7 +78,12 @@ const router = createBrowserRouter([
         path: '/details/:id',
         element: (
           <PrivateRoute>
-            <Details></Details>
+            <>
+              <Helmet>
+                <title>Campaign Details || Winter Clothing Donation</title>
+              </Helmet>
+              <Details />
+            </>
           </PrivateRoute>
         ),
         loader: async ({ params }) => {
@@ -65,15 +95,60 @@ const router = createBrowserRouter([
       },
       {
         path: '/login',
-        element: <Login></Login>,
+        element: (
+          <>
+            <Helmet>
+              <title>Login || Winter Clothing Donation</title>
+            </Helmet>
+            <Login />
+          </>
+        ),
       },
       {
         path: '/register',
-        element: <Register></Register>,
+        element: (
+          <>
+            <Helmet>
+              <title>Register || Winter Clothing Donation</title>
+            </Helmet>
+            <Register />
+          </>
+        ),
       },
       {
         path: '/forgot-password',
-        element: <ForgotPassword></ForgotPassword>,
+        element: (
+          <>
+            <Helmet>
+              <title>Forgot Password || Winter Clothing Donation</title>
+            </Helmet>
+            <ForgotPassword />
+          </>
+        ),
+      },
+      {
+        path: '/update-profile',
+        element: (
+          <PrivateRoute>
+            <>
+              <Helmet>
+                <title>Update Profile || Winter Clothing Donation</title>
+              </Helmet>
+              <UpdateProfile />
+            </>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/my-profile',
+        element: (
+          <>
+            <Helmet>
+              <title>My Profile || Winter Clothing Donation</title>
+            </Helmet>
+            <MyProfile />
+          </>
+        ),
       },
     ],
   },

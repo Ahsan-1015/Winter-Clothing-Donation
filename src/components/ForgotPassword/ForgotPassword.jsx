@@ -6,7 +6,7 @@ import auth from '../../firebsae/firebase.config';
 const ForgotPassword = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const [email, setEmail] = useState(location.state?.email || '');
+  const [email, setEmail] = useState(location.state?.email || ''); // Get email from state
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
 
@@ -21,10 +21,12 @@ const ForgotPassword = () => {
       setError('');
       await sendPasswordResetEmail(auth, email);
       setMessage('Reset link sent to your email');
+
+      // Redirect to Gmail after showing success message
       setTimeout(() => {
-        window.open('https://mail.google.com', '_blank');
-        navigate('/login');
-      }, 2000); // Redirect after showing the success message
+        window.open('https://mail.google.com', '_blank'); // Open Gmail in a new tab
+        navigate('/login'); // Redirect back to the login page
+      }, 2000);
     } catch (err) {
       setError(err.message);
     }
@@ -32,7 +34,7 @@ const ForgotPassword = () => {
 
   return (
     <div className="flex justify-center items-center p-10">
-      <div className="  rounded-lg p-10 w-full max-w-sm bg-gradient-to-r from-blue-100  to-purple-100 shadow-xl shadow-orange-300  hover:shadow-2xl hover:shadow-emerald-600 hover:ease-in-out duration-300 hover:scale-105">
+      <div className="rounded-lg p-10 w-full max-w-sm bg-gradient-to-r from-blue-100 to-purple-100 shadow-xl shadow-orange-300 hover:shadow-2xl hover:shadow-emerald-600 hover:ease-in-out duration-300 hover:scale-105">
         <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
           Reset Password
         </h2>
@@ -43,8 +45,8 @@ const ForgotPassword = () => {
             </label>
             <input
               type="email"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
+              value={email} // Display email from state
+              onChange={e => setEmail(e.target.value)} // Update email in state
               placeholder="Enter your email"
               className="input input-bordered w-full"
               required
