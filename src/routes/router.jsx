@@ -10,6 +10,7 @@ import Login from '../components/Login/Login';
 import Register from '../components/Register/Register';
 import PrivateRoute from '../components/PrivateRoute/PrivateRoute';
 import ErrorPage from '../components/ErrorPage/ErrorPage';
+import ForgotPassword from '../components/ForgotPassword/ForgotPassword';
 
 const router = createBrowserRouter([
   {
@@ -72,6 +73,10 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register></Register>,
+      },
+      {
+        path: '/forgot-password',
+        element: <ForgotPassword></ForgotPassword>,
       },
     ],
   },

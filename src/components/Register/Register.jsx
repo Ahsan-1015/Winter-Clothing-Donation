@@ -99,7 +99,7 @@
 // };
 
 // export default Register;
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import { authContext } from '../AuthProvider/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -147,14 +147,14 @@ const Register = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-blue-400 to-purple-500">
-      <div className="card bg-white shadow-xl rounded-lg p-8 w-full max-w-md">
-        <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
+    <div className="flex justify-center items-center py-2 md:py-10  ">
+      <div className="card bg-gradient-to-r from-blue-100  to-purple-100 shadow-xl shadow-orange-300  hover:shadow-2xl hover:shadow-emerald-600 hover:ease-in-out duration-300 hover:scale-105  rounded-lg p-8 w-full max-w-md">
+        <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">
           Register
         </h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-600">
+            <label className="block text-lg  font-semibold text-gray-600">
               Name
             </label>
             <input
@@ -166,7 +166,7 @@ const Register = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-600">
+            <label className="block text-md font-semibold text-gray-600">
               Image URL
             </label>
             <input
@@ -178,7 +178,7 @@ const Register = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-600">
+            <label className="block text-md font-semibold text-gray-600">
               Email
             </label>
             <input
@@ -190,7 +190,7 @@ const Register = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-600">
+            <label className="block text-md font-semibold text-gray-600">
               Password
             </label>
             <input
@@ -202,7 +202,7 @@ const Register = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-600">
+            <label className="block text-md font-semibold text-gray-600">
               Confirm Password
             </label>
             <input
@@ -213,16 +213,16 @@ const Register = () => {
               required
             />
           </div>
-          {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
+          {error && <p className="text-red-500 text-md mb-4">{error}</p>}
           <button
             type="submit"
-            className="btn btn-primary w-full bg-blue-600 hover:bg-blue-700 transition duration-300"
+            className="btn btn-primary w-full bg-gray-700 hover:bg-black text-white text-lg  transition duration-300"
           >
             Register
           </button>
         </form>
         <div className="text-center mt-4">
-          <p className="text-sm text-gray-600">
+          <p className="text-base text-gray-600">
             Already have an account?{' '}
             <Link to="/login" className="text-blue-500 hover:underline">
               Login here

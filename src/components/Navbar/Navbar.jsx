@@ -66,23 +66,12 @@ const Navbar = () => {
                 <span className="text-white">
                   <MdOutlineLogin />
                 </span>
-                <button className=" border-none  text-white text-md ">
+                <button className="border-none text-white text-md">
                   Logout
                 </button>
               </div>
             </div>
           ) : (
-            // <NavLink
-            //   to="login"
-            //   className="flex items-center btn bg-gradient-to-r from-purple-500 to-pink-500 "
-            // >
-            //   <span className="text-white">
-            //     <HiOutlineLogin />
-            //   </span>
-            //   <button className=" border-none  text-white text-lg ">
-            //     login
-            //   </button>
-            // </NavLink>
             <NavLink
               to="login"
               className="flex items-center btn bg-gradient-to-r from-blue-400 via-blue-300 to-yellow-300 shadow-lg hover:shadow-xl transition-all duration-300"
@@ -102,20 +91,37 @@ const Navbar = () => {
           onClick={toggleMenu}
           className="lg:hidden text-white focus:outline-none p-2 rounded-full border"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="2"
-            stroke="currentColor"
-            className="w-8 h-8"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
+          {isMenuOpen ? (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="2"
+              stroke="currentColor"
+              className="w-8 h-8"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          ) : (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="2"
+              stroke="currentColor"
+              className="w-8 h-8"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          )}
         </button>
       </div>
 
@@ -170,28 +176,28 @@ const Navbar = () => {
           {user?.email ? (
             <div className="flex items-center px-4 py-2 gap-2">
               <img
-                className="w-8 h-8 rounded-full object-cover border-2 border-teal-600"
+                className="w-12 h-12 rounded-full object-cover border-2 border-teal-600"
                 src={user.photoURL || '/default-avatar.png'}
                 alt="User"
               />
               <div
                 onClick={handleLogout}
-                className="flex items-center btn bg-[#6B1D1D] "
+                className="flex items-center btn bg-[#6B1D1D]"
               >
                 <span className="text-white">
                   <MdOutlineLogin />
                 </span>
-                <button className=" border-none  text-white text-md ">
+                <button className="border-none text-white text-md">
                   Logout
                 </button>
               </div>
             </div>
           ) : (
             <NavLink to="/login" onClick={() => setIsMenuOpen(false)}>
-              <div className="  btn bg-gradient-to-r from-blue-400 via-blue-300 to-yellow-300 shadow-lg hover:shadow-xl transition-all duration-300">
-                <div className="text-white  flex items-center">
+              <div className="btn bg-gradient-to-r from-blue-400 via-blue-300 to-yellow-300 shadow-lg hover:shadow-xl transition-all duration-300">
+                <div className="text-white flex items-center">
                   <HiOutlineLogin />
-                  <button className=" px-4  w-full">login</button>
+                  <button className="px-4 w-full">Login</button>
                 </div>
               </div>
             </NavLink>
