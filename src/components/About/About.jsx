@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import 'animate.css'; // Animation library for additional effects
 import AOS from 'aos'; // AOS for scroll-based animations
 import 'aos/dist/aos.css'; // AOS styles for smooth animations
 
 const About = () => {
-  // Initialize AOS (scroll-based animations)
   useEffect(() => {
     AOS.init({
       duration: 2000,
@@ -14,23 +13,56 @@ const About = () => {
   }, []);
 
   return (
-    <div className="relative bg-gradient-to-b from-blue-200 via-white to-blue-100 py-16 overflow-hidden">
+    <div className="relative my-10 rounded-2xl bg-gradient-to-b from-blue-200 via-white to-blue-100 py-16 overflow-hidden">
       {/* Snowflake Background Effect */}
-      <div className="absolute inset-0">
-        <div className="snowflakes" aria-hidden="true">
-          {Array(8)
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="snowflakes">
+          {Array(50) // Increased number of snowflakes for better effect
             .fill(null)
             .map((_, i) => (
               <div
                 key={i}
-                className="snowflake text-white text-opacity-70 text-2xl animate__animated animate__fadeIn"
-                style={{ '--i': i }}
+                className="snowflake"
+                style={{
+                  '--i': i,
+                  left: `${Math.random() * 100}%`,
+                  animationDuration: `${5 + Math.random() * 10}s`,
+                  animationDelay: `${Math.random() * 5}s`,
+                  fontSize: `${Math.random() * 15 + 10}px`, // Random sizes
+                }}
               >
                 ❄️
               </div>
             ))}
         </div>
       </div>
+      {/* Snowfall CSS */}
+      <style>{`
+        .snowflakes {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 0;
+          pointer-events: none;
+        }
+
+        .snowflake {
+          position: absolute;
+          top: -10px;
+          animation: snow linear infinite;
+        }
+
+        @keyframes snow {
+          0% {
+            transform: translateY(0);
+          }
+          100% {
+            transform: translateY(100vh);
+          }
+        }
+      `}</style>
 
       <div className="relative container mx-auto px-6 lg:px-12 z-10">
         {/* Title */}
@@ -109,67 +141,7 @@ const About = () => {
           </div>
         </div>
       </div>
-
-      {/* Snowfall CSS */}
-      <style jsx>{`
-        .snowflakes {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          pointer-events: none;
-          z-index: 0;
-        }
-
-        .snowflake {
-          position: absolute;
-          top: -10px;
-          color: white;
-          font-size: 20px;
-          opacity: 0.8;
-          animation: snow 10s linear infinite;
-        }
-
-        /* Snowflakes from top-left */
-        .snowflake:nth-child(1),
-        .snowflake:nth-child(2),
-        .snowflake:nth-child(3),
-        .snowflake:nth-child(4) {
-          left: calc(
-            10% * var(--i)
-          ); /* Distribute snowflakes across the left */
-          animation-duration: calc(
-            8s + 5 * (var(--i) + 1)
-          ); /* Varying speeds */
-          font-size: calc(15px + 10 * var(--i)); /* Varying sizes */
-        }
-
-        /* Snowflakes from top-right */
-        .snowflake:nth-child(5),
-        .snowflake:nth-child(6),
-        .snowflake:nth-child(7),
-        .snowflake:nth-child(8) {
-          right: calc(
-            10% * var(--i)
-          ); /* Distribute snowflakes across the right */
-          animation-duration: calc(
-            8s + 5 * (var(--i) + 1)
-          ); /* Varying speeds */
-          font-size: calc(15px + 10 * var(--i)); /* Varying sizes */
-        }
-
-        @keyframes snow {
-          0% {
-            transform: translateY(-10px); /* Start from top */
-          }
-          100% {
-            transform: translateY(100vh); /* End at the bottom */
-          }
-        }
-      `}</style>
     </div>
-    
   );
 };
 

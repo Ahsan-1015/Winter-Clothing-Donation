@@ -3,7 +3,7 @@
     "id": 1,
     "title": "Warm Clothes Drive - Dhaka",
     "image": "https://www.orphansupportinternational.org/assets/images/20211219_152020_1.36125642_std.jpg",
-    "description": "Providing winter clothing to the underprivileged communities in Dhaka.",
+    "description": "Providing winter clothing to the underprivileged communities in Dhaka. This initiative focuses on distributing essential winter gear to ensure no one suffers from the harsh cold weather in the city.",
     "status": "Active",
     "contactInfo": "dhaka@donation.org",
     "division": "Dhaka"
@@ -12,7 +12,7 @@
     "id": 2,
     "title": "Blanket Collection for Old Dhaka",
     "image": "https://i.ibb.co.com/F8rYwvy/Made-with-Flex-Clip-AI-2024-11-19-T230345.png",
-    "description": "Collecting blankets to distribute in the Old Dhaka area.",
+    "description": "Collecting blankets to distribute in the Old Dhaka area. This drive aims to provide comfort and warmth to the elderly and children during the chilly winter months.",
     "status": "Active",
     "contactInfo": "olddhaka@donation.org",
     "division": "Dhaka"
@@ -21,7 +21,7 @@
     "id": 3,
     "title": "Sylhet Winter Support",
     "image": "https://i.ibb.co.com/3dZs6Ts/Made-with-Flex-Clip-AI-2024-11-19-T225757.png",
-    "description": "Helping the remote villages in Sylhet with winter clothes.",
+    "description": "Helping the remote villages in Sylhet with winter clothes. This campaign ensures that even the most inaccessible communities receive the protection they need from the cold.",
     "status": "Active",
     "contactInfo": "sylhet@donation.org",
     "division": "Sylhet"
@@ -30,16 +30,16 @@
     "id": 4,
     "title": "Keep Sylhet Warm",
     "image": "https://wfad.se/wp-content/uploads/2022/01/MA-Khulna-Bangladesh-11-1024x768.jpg",
-    "description": "Distributing jackets and sweaters to children in Sylhet.",
+    "description": "Distributing jackets and sweaters to children in Sylhet. This effort is targeted to ensure children in need stay warm and healthy throughout the winter.",
     "status": "Completed",
-    "contactInfo": "sylhetcampaign@donation.org",
+    "contactInfo": "sylhetcamp@donation.org",
     "division": "Sylhet"
   },
   {
     "id": 5,
     "title": "Rajshahi Rural Relief",
     "image": "https://i.ibb.co.com/zJth5Mp/DALL-E-2024-11-19-22-22-31-A-warm-winter-clothing-donation-campaign-in-Dhaka-Bangladesh-Volunteers-a.webp",
-    "description": "Providing warm clothing to rural areas of Rajshahi.",
+    "description": "Providing warm clothing to rural areas of Rajshahi. This campaign focuses on remote regions where resources are scarce, ensuring warmth for vulnerable families.",
     "status": "Active",
     "contactInfo": "rajshahi@donation.org",
     "division": "Rajshahi"
@@ -48,7 +48,7 @@
     "id": 6,
     "title": "Cozy Winter for Rajshahi",
     "image": "https://i.ibb.co.com/1rSYLb6/DALL-E-2024-11-19-22-03-39-A-heartwarming-winter-themed-scene-in-Dhaka-Bangladesh-featuring-voluntee.webp",
-    "description": "Distributing winter essentials to low-income families in Rajshahi.",
+    "description": "Distributing winter essentials to low-income families in Rajshahi. By focusing on necessities, this drive aims to make the cold season more bearable for those in need.",
     "status": "Completed",
     "contactInfo": "rajshahihelp@donation.org",
     "division": "Rajshahi"
@@ -57,7 +57,7 @@
     "id": 7,
     "title": "Chattogram Winter Aid",
     "image": "https://i.ibb.co.com/fxwVjYz/Made-with-Flex-Clip-AI-2024-11-19-T231136.png",
-    "description": "Providing blankets and warm clothing to the people in Chattogram.",
+    "description": "Providing blankets and warm clothing to the people in Chattogram. This drive is focused on ensuring families have the basic necessities to protect against the cold.",
     "status": "Active",
     "contactInfo": "chattogram@donation.org",
     "division": "Chattogram"
@@ -66,7 +66,7 @@
     "id": 8,
     "title": "Winter Help for Cox's Bazar",
     "image": "https://i.ibb.co.com/XWFZzJt/DALL-E-2024-11-19-22-44-10-A-winter-clothing-donation-campaign-in-Cox-s-Bazar-Bangladesh-Volunteers.webp",
-    "description": "Helping fishermen communities in Cox's Bazar with warm clothing.",
+    "description": "Helping fishermen communities in Cox's Bazar with warm clothing. These efforts focus on sustaining livelihoods while ensuring safety during the winter season.",
     "status": "Pending",
     "contactInfo": "coxsbazar@donation.org",
     "division": "Chattogram"
@@ -75,7 +75,7 @@
     "id": 9,
     "title": "Khulna Winter Clothing Campaign",
     "image": "https://i.ibb.co.com/Pz4nz1Z/DALL-E-2024-11-19-22-47-58-A-heartfelt-scene-of-a-winter-clothing-donation-drive-in-Khulna-Banglades.webp",
-    "description": "Donating winter clothing to underprivileged families in Khulna.",
+    "description": "Donating winter clothing to underprivileged families in Khulna. This campaign aims to cover as many families as possible, ensuring the community is ready for the cold season.",
     "status": "Active",
     "contactInfo": "khulna@donation.org",
     "division": "Khulna"
@@ -84,7 +84,7 @@
     "id": 10,
     "title": "Warm Winter for Sundarbans",
     "image": "https://i.ibb.co.com/wNPcPJ9/DALL-E-2024-11-19-22-49-48-A-compassionate-scene-of-volunteers-distributing-blankets-and-warm-clothi.webp",
-    "description": "Providing blankets and warm clothing to people near the Sundarbans.",
+    "description": "Providing blankets and warm clothing to people near the Sundarbans. This initiative targets the vulnerable populations living in extreme conditions near this unique region.",
     "status": "Pending",
     "contactInfo": "sundarbans@donation.org",
     "division": "Khulna"
@@ -93,7 +93,7 @@
     "id": 11,
     "title": "Barishal Warm Drive",
     "image": "https://i.ibb.co.com/ZTctkLt/DALL-E-2024-11-19-22-51-40-A-lively-scene-of-volunteers-collecting-and-distributing-sweaters-to-unde.webp",
-    "description": "Collecting and distributing sweaters to Barishal communities.",
+    "description": "Collecting and distributing sweaters to Barishal communities. This drive supports local families by ensuring they have access to basic winter essentials.",
     "status": "Active",
     "contactInfo": "barishal@donation.org",
     "division": "Barishal"
@@ -102,7 +102,7 @@
     "id": 12,
     "title": "Cozy Winter for Barishal",
     "image": "https://i.ibb.co.com/pWTGtqV/Made-with-Flex-Clip-AI-2024-11-19-T230022.png",
-    "description": "Providing warm clothes to orphans in Barishal.",
+    "description": "Providing warm clothes to orphans in Barishal. This effort aims to protect the most vulnerable members of the community from harsh winter conditions.",
     "status": "Completed",
     "contactInfo": "barishalcare@donation.org",
     "division": "Barishal"
