@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Testimonials = () => {
   // State to store testimonials data
   const [testimonials, setTestimonials] = useState([]);
 
-  // Simulate fetching JSON data
+  // Fetch testimonials data
   useEffect(() => {
-    // Fetch data from local JSON file
     const fetchData = async () => {
       try {
         const response = await fetch('testimonials.json');
@@ -20,10 +21,22 @@ const Testimonials = () => {
     fetchData();
   }, []);
 
+  // Initialize and re-initialize AOS for dynamic content
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation duration
+      once: false, // Enable repeat on scroll
+      mirror: true, // Trigger animations when scrolling back
+      offset: 120, // Offset from the top of the viewport
+    });
+
+    // Re-initialize AOS whenever content updates
+    AOS.refresh();
+  }, [testimonials]);
+
   return (
     <section
-      data-aos="fade-up"
-      data-aos-anchor-placement="bottom-center"
+      data-aos="zoom-out-up"
       className="animate__animated animate__zoomInUp py-16 bg-gradient-to-b from-blue-100 via-white to-blue-100 my-20 rounded-2xl"
     >
       <div className="container mx-auto px-6 lg:px-12 text-center">
@@ -34,6 +47,10 @@ const Testimonials = () => {
           {testimonials.map(
             ({ id, name, role, message, image, rating, date }) => (
               <div
+                data-aos="flip-left"
+                data-aos-duration="1500"
+                data-aos-delay="200"
+                data-aos-offset="300"
                 key={id}
                 className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center hover:shadow-orange-400"
                 style={{
@@ -45,7 +62,7 @@ const Testimonials = () => {
                 <img
                   src={image}
                   alt={name}
-                  className="w-20 h-20 rounded-full border-2  mb-4 object-cover border-teal-600"
+                  className="w-20 h-20 rounded-full border-2 mb-4 object-cover border-teal-600"
                 />
                 <h3 className="text-xl font-semibold text-teal-700">{name}</h3>
                 <p className="text-gray-500 text-sm mb-2">{role}</p>

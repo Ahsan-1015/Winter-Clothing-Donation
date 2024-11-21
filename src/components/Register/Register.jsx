@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import { authContext } from '../AuthProvider/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaEye, FaEyeSlash } from 'react-icons/fa';
+import logo from '/favicon.png';
 
 const Register = () => {
   const { handleRegister, manageProfile, handleGoogleLogin } =
@@ -66,7 +67,12 @@ const Register = () => {
 
   return (
     <div className="flex justify-center items-center py-2 md:py-10">
-      <div className="animate__animated animate__zoomIn card bg-gradient-to-r from-blue-100 to-purple-100 shadow-xl shadow-orange-300 hover:shadow-2xl hover:shadow-emerald-600 hover:ease-in-out duration-300 hover:scale-105 rounded-lg p-8 w-full max-w-md">
+      <div className="animate__animated animate__zoomIn card bg-gradient-to-r from-blue-100 to-purple-100 shadow-xl shadow-orange-300 hover:shadow-2xl hover:shadow-emerald-600 hover:ease-in-out duration-300  rounded-lg p-8 w-full max-w-md">
+        <img
+          className="w-36 h-32 mx-auto flex justify-center"
+          src={logo}
+          alt=""
+        />
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">
           Register
         </h2>
@@ -154,7 +160,7 @@ const Register = () => {
           {error && <p className="text-red-500 text-md mb-4">{error}</p>}
           <button
             type="submit"
-            className="animate__animated animate__backInRight btn btn-primary w-full bg-gray-700 hover:bg-black text-white text-lg transition duration-300"
+            className="animate__animated   btn btn-primary w-full bg-gray-700 hover:bg-black text-white text-lg transition duration-300"
           >
             Register
           </button>
@@ -169,7 +175,7 @@ const Register = () => {
         </div>
         <div
           onClick={googleLoginHandler}
-          className="mt-6 cursor-pointer animate__animated animate__backInLeft"
+          className="mt-6 cursor-pointer animate__animated animate__fadeInUp"
         >
           <div className="flex gap-2 bg-red-500 hover:bg-red-600 w-full items-center justify-center py-2 text-white font-semibold rounded-lg transition duration-300">
             <FaGoogle className="text-2xl font-extrabold" />

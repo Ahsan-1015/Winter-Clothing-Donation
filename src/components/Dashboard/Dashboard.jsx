@@ -31,13 +31,8 @@ const Dashboard = () => {
     >
       {user ? (
         <div
-          className="bg-white bg-opacity-80 shadow-xl rounded-lg p-10 w-full max-w-4xl flex flex-col md:flex-row items-center animate__animated animate__fadeIn"
+          className="bg-white bg-opacity-80 shadow-xl rounded-lg p-10 w-full max-w-4xl flex flex-col md:flex-row items-center animate__animated animate__fadeIn bg-gradient-to-l to-blue-200 from-blue-50"
           data-aos="fade-up"
-          style={{
-            backgroundImage:
-              'url("https://www.transparenttextures.com/patterns/light-wool.png"), linear-gradient(to bottom, #e0f7fa, #ffffff)',
-            backgroundSize: 'cover',
-          }}
         >
           {/* User Image Section */}
           <div className="md:w-1/3 flex flex-col items-center">
@@ -71,7 +66,7 @@ const Dashboard = () => {
               !
             </h1>
             <p className="text-lg text-gray-600 mt-2">
-              We're glad to have you back!
+              We&apos;re glad to have you back!
             </p>
 
             {/* User Info */}

@@ -5,6 +5,8 @@ import { FaGoogle, FaEye, FaEyeSlash } from 'react-icons/fa';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
+import logo from '/favicon.png';
+
 const Login = () => {
   const { handleGoogleLogin, handleLogin } = useContext(authContext);
   const [email, setEmail] = useState('');
@@ -41,7 +43,12 @@ const Login = () => {
 
   return (
     <div className="flex justify-center items-center py-8 md:py-20">
-      <div className="animate__animated animate__zoomIn rounded-lg p-8 w-full max-w-sm bg-gradient-to-r from-blue-100 to-purple-100 shadow-xl shadow-orange-300 hover:shadow-2xl hover:shadow-emerald-600 hover:ease-in-out duration-300 hover:scale-105">
+      <div className="animate__animated animate__zoomIn rounded-lg p-8 w-full max-w-sm bg-gradient-to-r from-blue-100 to-purple-100 shadow-xl shadow-orange-300 hover:shadow-2xl hover:shadow-emerald-600 hover:ease-in-out duration-300 ">
+        <img
+          className="w-36 h-32 mx-auto flex justify-center"
+          src={logo}
+          alt=""
+        />
         <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
           Log In
         </h2>
@@ -98,7 +105,7 @@ const Login = () => {
           </div>
           <button
             type="submit"
-            className="animate__animated animate__backInRight btn btn-primary w-full bg-gray-700 hover:bg-black text-white font-semibold py-2 rounded-lg transition duration-300"
+            className="animate__animated btn btn-primary w-full bg-gray-700 hover:bg-black text-white font-semibold py-2 rounded-lg transition duration-300"
           >
             Log In
           </button>
@@ -113,7 +120,7 @@ const Login = () => {
         </div>
         <div
           onClick={googleLoginHandler}
-          className="mt-6 cursor-pointer animate__animated animate__backInLeft"
+          className="mt-6 cursor-pointer animate__animated animate__fadeInUp"
         >
           <div className="flex gap-2 bg-red-500 hover:bg-red-600 w-full items-center justify-center py-2 text-white font-semibold rounded-lg transition duration-300">
             <FaGoogle className="text-2xl font-extrabold" />

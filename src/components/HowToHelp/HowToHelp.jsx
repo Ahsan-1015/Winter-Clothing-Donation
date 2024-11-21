@@ -20,8 +20,8 @@ const HowToHelp = () => {
         className="text-lg text-center mt-4 animate__animated animate__fadeInUp"
         data-aos="fade-up"
       >
-        Your small contribution can bring warmth to someone this winter. Here's
-        how you can help.
+        Your small contribution can bring warmth to someone this winter.
+        Here&apos;s how you can help.
       </p>
 
       <div className="flex flex-col md:flex-row items-center gap-10 mt-10">
@@ -40,7 +40,7 @@ const HowToHelp = () => {
             </li>
             <li className="flex items-start gap-2">
               <span className="text-green-400 font-bold">2.</span> Ensure
-              they're clean and in good condition.
+              they&apos;re clean and in good condition.
             </li>
             <li className="flex items-start gap-2">
               <span className="text-green-400 font-bold">3.</span> Pack them for
@@ -49,6 +49,10 @@ const HowToHelp = () => {
             <li className="flex items-start gap-2">
               <span className="text-green-400 font-bold">4.</span> Drop them off
               or schedule a pickup.
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-green-400 font-bold">5.</span> Add a note of
+              kindness or label the package .
             </li>
           </ul>
         </div>

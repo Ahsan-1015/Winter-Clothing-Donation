@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { authContext } from '../AuthProvider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 import auth from '../../firebase/firebase.config';
+import logo from '/favicon.png';
 
 const UpdateProfile = () => {
   const { user } = useContext(authContext); // Get the current user info
@@ -45,6 +46,11 @@ const UpdateProfile = () => {
   return (
     <div className="flex justify-center min-h-screen  items-center p-10">
       <div className="rounded-lg p-10  w-full max-w-lg bg-gradient-to-r from-blue-100 to-purple-100 shadow-xl shadow-orange-300 hover:shadow-xl  hover:shadow-blue-400">
+        <img
+          className="w-36 h-32 mx-auto flex justify-center"
+          src={logo}
+          alt=""
+        />
         <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
           Update Profile
         </h2>

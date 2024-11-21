@@ -45,7 +45,7 @@ const Navbar = () => {
         </div>
 
         {/* Links (Desktop view) */}
-        <div className="hidden lg:flex space-x-6 items-center text-black texxl">
+        <div className="hidden lg:flex space-x-6 items-center text-black text-xl">
           <ul className="menu menu-horizontal px-1 gap-2 text-lg">{navUrl}</ul>
         </div>
 
@@ -54,14 +54,14 @@ const Navbar = () => {
           {user?.email ? (
             <div className="flex gap-2 items-center">
               <img
-                className="w-12 h-12 rounded-full object-cover border-2 border-teal-600"
+                className="w-12 h-12 rounded-full object-cover border-2 border-black"
                 src={user.photoURL || '/default-avatar.png'}
                 alt="User"
               />
 
               <div
                 onClick={handleLogout}
-                className="flex items-center btn bg-[#6B1D1D] "
+                className="flex items-center btn bg-[#6B1D1D]  hover:bg-[#8B1D1D]"
               >
                 <span className="text-white">
                   <MdOutlineLogin />
@@ -125,7 +125,7 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu (Toggleable) */}
+      {/* Mobile Menu (Toggle able) */}
       {isMenuOpen && (
         <div className="lg:hidden bg-blue-900">
           <NavLink

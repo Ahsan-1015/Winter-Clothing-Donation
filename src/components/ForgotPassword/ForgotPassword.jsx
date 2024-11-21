@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { sendPasswordResetEmail } from 'firebase/auth'; // Import this from Firebase
 import auth from '../../firebase/firebase.config';
-
+import logo from '/favicon.png';
 const ForgotPassword = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -34,7 +34,12 @@ const ForgotPassword = () => {
 
   return (
     <div className="flex justify-center items-center p-10">
-      <div className="rounded-lg p-10 w-full max-w-sm bg-gradient-to-r from-blue-100 to-purple-100 shadow-xl shadow-orange-300 hover:shadow-2xl hover:shadow-emerald-600 hover:ease-in-out duration-300 hover:scale-105">
+      <div className="rounded-lg p-10 w-full max-w-sm bg-gradient-to-r from-blue-100 to-purple-100 shadow-xl shadow-orange-300 hover:shadow-2xl hover:shadow-emerald-600 hover:ease-in-out duration-300 ">
+        <img
+          className="w-36 h-32 mx-auto flex justify-center"
+          src={logo}
+          alt=""
+        />
         <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
           Reset Password
         </h2>
