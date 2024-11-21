@@ -13,9 +13,9 @@ const CampaignCard = ({ campaign }) => {
     >
       <div
         key={id}
-        className="card h-[500px]  bg-base-100 shadow-xl hover:shadow-blue-300 transform hover:scale-105 transition-transform duration-300 relative overflow-hidden"
+        className="card lg:h-[550px] xl:h-[500px]  bg-base-100 shadow-xl hover:shadow-blue-300 transform hover:scale-105 transition-transform duration-300 relative overflow-hidden"
       >
-        <div className="h-56">
+        <div className=" h-56">
           {image ? (
             <img
               src={image}

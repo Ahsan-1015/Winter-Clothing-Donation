@@ -18,7 +18,10 @@ const Home = () => {
         data-aos="zoom-in-down"
         className="flex items-center  gap-3 animate__animated animate__fadeIn animate__delay-1s"
       >
-        <h2 className="text-center md:text-left text-3xl md:text-4xl font-bold mt-12 ">
+        <h2
+          id="featured-campaigns"
+          className="text-center md:text-left text-3xl md:text-4xl font-bold mt-12 "
+        >
           Featured Campaigns _
         </h2>
         <img

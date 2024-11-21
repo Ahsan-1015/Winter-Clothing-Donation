@@ -131,18 +131,18 @@ const DonationDetails = () => {
       <div className=" grid xl:grid-cols-2 gap-6 items-center">
         {/* Left Side - Campaign Details */}
         <div
-          className="relative  md:h-[600px] xl:h-[550px] rounded-lg overflow-hidden shadow-lg"
+          className="relative  md:h-[600px] xl:h-[700px] rounded-lg overflow-hidden shadow-lg"
           data-aos="fade-right"
         >
           {/* Blurred Image Background */}
           <img
             src={image}
             alt={title}
-            className="absolute inset-0 w-full h-full  object-cover blur-0"
+            className="absolute inset-0 w-full h-full  object-cover blur-0  "
           />
           <div className="absolute inset-0  bg-opacity-40"></div>
           {/* Centered Text Content */}
-          <div className="relative flex flex-col items-center justify-center h-full text-center text-white p-6 space-y-4 backdrop-blur-sm">
+          <div className="relative flex flex-col items-center justify-center h-full text-center text-white p-6 space-y-4 backdrop-blur-sm bg-transparent">
             <h1 className="text-4xl font-bold">{title}</h1>
             <p className="text-lg">{description}</p>
             <div className="flex gap-4">
@@ -160,8 +160,7 @@ const DonationDetails = () => {
         {/* Right Side - Donation Form */}
         <form
           onSubmit={handleSubmit}
-          className="bg-white bg-gradient-to-r from-blue-50 via-white to-purple-50 p-6  md:h-[600px] xl:h-[550px] rounded-lg shadow-lg space-y-4 "
-          data-aos="fade-left"
+          className="bg-white md:h-[600px] xl:h-[700px] bg-gradient-to-r from-blue-50 via-white to-purple-50 p-6 rounded-lg shadow-lg space-y-4"
         >
           <h2 className="text-2xl font-bold text-center text-gray-800">
             Donation Form
@@ -170,43 +169,132 @@ const DonationDetails = () => {
           {/* Quantity */}
           <div>
             <label className="block text-sm font-medium">Quantity</label>
-            <input
-              type="text"
+            <select
               name="quantity"
               value={form.quantity}
-              onChange={handleInputChange}
-              placeholder="e.g., 2 jackets, 3 blankets"
-              className="input input-bordered w-full"
+              onChange={e =>
+                setForm({
+                  ...form,
+                  quantity: e.target.value,
+                  customQuantity: e.target.value === 'Custom' ? '' : null, // Show or remove custom input
+                })
+              }
+              className="select select-bordered w-full"
               required
-            />
+            >
+              <option value="" disabled>
+                Select quantity
+              </option>
+              <option value="1 Blanket">1 Blanket</option>
+              <option value="2 Blankets">2 Blankets</option>
+              <option value="3 Jackets">3 Jackets</option>
+              <option value="5 Sweaters">5 Sweaters</option>
+              <option value="Custom">Custom Quantity</option>
+            </select>
+            {form.customQuantity !== null && (
+              <input
+                type="text"
+                name="customQuantity"
+                placeholder="Enter custom quantity (e.g., 7 scarves)"
+                value={form.customQuantity}
+                onChange={e =>
+                  setForm({
+                    ...form,
+                    quantity: e.target.value,
+                    customQuantity: e.target.value,
+                  })
+                }
+                className="input input-bordered w-full mt-2"
+                required
+              />
+            )}
           </div>
 
           {/* Item Type */}
           <div>
             <label className="block text-sm font-medium">Item Type</label>
-            <input
-              type="text"
+            <select
               name="itemType"
               value={form.itemType}
-              onChange={handleInputChange}
-              placeholder="e.g., blanket, jacket, sweater"
-              className="input input-bordered w-full"
+              onChange={e =>
+                setForm({
+                  ...form,
+                  itemType: e.target.value,
+                  customItemType: e.target.value === 'Custom' ? '' : null, // Show or remove custom input
+                })
+              }
+              className="select select-bordered w-full"
               required
-            />
+            >
+              <option value="" disabled>
+                Select item type
+              </option>
+              <option value="Sweater">Sweater</option>
+              <option value="Blanket">Blanket</option>
+              <option value="Jacket">Jacket</option>
+              <option value="Custom">Custom Item</option>
+            </select>
+            {form.customItemType !== null && (
+              <input
+                type="text"
+                name="customItemType"
+                placeholder="Enter custom item type"
+                value={form.customItemType}
+                onChange={e =>
+                  setForm({
+                    ...form,
+                    itemType: e.target.value,
+                    customItemType: e.target.value,
+                  })
+                }
+                className="input input-bordered w-full mt-2"
+                required
+              />
+            )}
           </div>
 
           {/* Pickup Location */}
           <div>
             <label className="block text-sm font-medium">Pickup Location</label>
-            <input
-              type="text"
+            <select
               name="pickupLocation"
               value={form.pickupLocation}
-              onChange={handleInputChange}
-              placeholder="e.g., House 12, Road 5, Dhanmondi, Dhaka"
-              className="input input-bordered w-full"
+              onChange={e =>
+                setForm({
+                  ...form,
+                  pickupLocation: e.target.value,
+                  customPickupLocation: e.target.value === 'Custom' ? '' : null, // Show or remove custom input
+                })
+              }
+              className="select select-bordered w-full"
               required
-            />
+            >
+              <option value="" disabled>
+                Select location
+              </option>
+              <option value="Dhaka">Dhaka</option>
+              <option value="Chattogram">Chattogram</option>
+              <option value="Khulna">Khulna</option>
+              <option value="Rajshahi">Rajshahi</option>
+              <option value="Custom">Custom Location</option>
+            </select>
+            {form.customPickupLocation !== null && (
+              <input
+                type="text"
+                name="customPickupLocation"
+                placeholder="Enter custom location"
+                value={form.customPickupLocation}
+                onChange={e =>
+                  setForm({
+                    ...form,
+                    pickupLocation: e.target.value,
+                    customPickupLocation: e.target.value,
+                  })
+                }
+                className="input input-bordered w-full mt-2"
+                required
+              />
+            )}
           </div>
 
           {/* Additional Notes */}

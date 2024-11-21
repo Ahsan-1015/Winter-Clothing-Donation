@@ -4,7 +4,7 @@ import MainLayout from '../components/MainLayout/MainLayout';
 import Home from '../components/Home/Home';
 import Campaign from '../components/Campaign/Campaign';
 import Dashboard from '../components/Dashboard/Dashboard';
-import Profile from '../components/HowToHelp/HowToHelp';
+
 import Details from '../components/Details/Details';
 import Login from '../components/Login/Login';
 import Register from '../components/Register/Register';

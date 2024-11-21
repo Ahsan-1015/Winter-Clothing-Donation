@@ -10,7 +10,7 @@ import {
   signOut,
   updateProfile,
 } from 'firebase/auth';
-import auth from '../../firebsae/firebase.config';
+import auth from '../../firebase/firebase.config';
 // eslint-disable-next-line react/prop-types
 const AuthProvider = ({ routes }) => {
   const googleProvider = new GoogleAuthProvider();

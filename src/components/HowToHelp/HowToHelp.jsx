@@ -9,7 +9,7 @@ const HowToHelp = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-900 to-gray-900 text-white flex flex-col justify-center items-center px-4 md:px-20">
+    <div className="min-h-screen py-12 rounded-xl bg-gradient-to-b from-blue-900 to-gray-900 text-white flex flex-col justify-center items-center px-4 md:px-20">
       <h1
         className="text-4xl font-bold text-center animate__animated animate__fadeInDown"
         data-aos="fade-up"
@@ -27,7 +27,7 @@ const HowToHelp = () => {
       <div className="flex flex-col md:flex-row items-center gap-10 mt-10">
         {/* Left Section */}
         <div
-          className="md:w-1/2 bg-white bg-opacity-10 p-6 rounded-lg shadow-lg"
+          className="md:w-1/2 bg-white bg-opacity-10 p-6 rounded-lg shadow-lg h-96"
           data-aos="fade-right"
         >
           <h2 className="text-2xl font-bold mb-4 text-yellow-300">
@@ -55,7 +55,7 @@ const HowToHelp = () => {
 
         {/* Right Section */}
         <div
-          className="md:w-1/2 bg-white bg-opacity-10 p-6 rounded-lg shadow-lg"
+          className="md:w-1/2 bg-white bg-opacity-10 p-6 rounded-lg shadow-lg h-96"
           data-aos="fade-left"
         >
           <h2 className="text-2xl font-bold mb-4 text-yellow-300">

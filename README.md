@@ -1,4 +1,4 @@
-# ❄️ Winter Clothing Donation Website
+# ❄️ KIND WINTER: Winter Clothing Donation Website
 
 A platform to help people donate winter clothing to those in need across
 Bangladesh. This project bridges the gap between donors and volunteers, ensuring
@@ -43,6 +43,21 @@ The application has a cozy winter design with:
 - **User Profile Management:** Update user profile information with ease.
 - **Interactive Design:** Includes animations (e.g., AOS or Animate.css).
 - **Error Handling:** Dedicated 404 error page for invalid routes.
+
+---
+
+## 🛠️ npm Packages Used
+
+- **React.js:** Framework for building user interfaces.
+- **React Router DOM:** For routing and private route management.
+- **Firebase:** For authentication and backend services.
+- **Tailwind CSS:** For styling and responsive design.
+- **Daisy UI:** For component-based styling.
+- **React Toastify:** To show interactive notifications.
+- **SweetAlert2:** To show interactive notifications. (npm package)
+- **Swiper.js:** For sliders and banners.
+- **AOS (Animate on Scroll):** For animation effects.
+- **Animation:** AOS or Animate.css
 
 ---
 
