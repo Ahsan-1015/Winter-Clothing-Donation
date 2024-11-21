@@ -1,52 +1,17 @@
-// import React, { useContext } from 'react';
-// import { useLoaderData } from 'react-router-dom';
-// import Modal from '../Modal/Modal';
-// import { authContext } from '../AuthProvider/AuthProvider';
-
-// const Details = () => {
-//   const { cost, treatment, description, image } = useLoaderData();
-//   const contextValue = useContext(authContext);
-//   console.log(contextValue);
-
-//   return (
-//     <div
-//       className="hero min-h-screen"
-//       style={{
-//         backgroundImage: `url(${image})`,
-//       }}
-//     >
-//       <div className="hero-overlay bg-opacity-60"></div>
-//       <div className="hero-content text-neutral-content text-center">
-//         <div className="max-w-md">
-//           <h1 className="mb-5 text-5xl font-bold">{treatment}</h1>
-//           <p className="mb-5">{description}</p>
-//           <button
-//             onClick={() => document.getElementById('my_modal_5').showModal()}
-//             className="btn btn-primary"
-//           >
-//             Book Appoinment
-//           </button>
-//         </div>
-//       </div>
-//       <Modal treatment={treatment}></Modal>
-//     </div>
-//   );
-// };
-
-// export default Details;
-
-import React, { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import { authContext } from '../AuthProvider/AuthProvider';
-import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import 'animate.css';
 
 const DonationDetails = () => {
-  const campaign = useLoaderData(); // Fetching campaign data from loader
+  const campaign = useLoaderData();
   const { title, description, image, division, status, contactInfo } = campaign;
 
-  const { user, loading } = useContext(authContext); // Auth context
-  const navigate = useNavigate(); // Navigation for redirect
+  const { user, loading } = useContext(authContext);
+  const navigate = useNavigate();
 
   const [form, setForm] = useState({
     quantity: '',
@@ -55,6 +20,10 @@ const DonationDetails = () => {
     notes: '',
   });
 
+  useEffect(() => {
+    AOS.init({ duration: 800 });
+  }, []);
+
   const handleInputChange = e => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
@@ -62,19 +31,28 @@ const DonationDetails = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-
     Swal.fire({
       position: 'top-center',
       icon: 'success',
       title: 'Thank you! We will reach your destination soon.',
       showConfirmButton: false,
       timer: 1500,
-    });
 
-    // toast.success('Thank you! We will reach your destination soon.', {
-    //   position: 'top-right',
-    //   autoClose: 3000,
-    // });
+      showClass: {
+        popup: `
+      animate__animated
+      animate__fadeInUp
+      animate__faster
+    `,
+      },
+      hideClass: {
+        popup: `
+      animate__animated
+      animate__fadeOutDown
+      animate__faster
+    `,
+      },
+    });
     setForm({
       quantity: '',
       itemType: '',
@@ -83,115 +61,176 @@ const DonationDetails = () => {
     });
   };
 
-  // Redirect if not authenticated
   if (!loading && !user) {
-    toast.error('You need to log in to access the donation form.', {
-      position: 'top-right',
-    });
     navigate('/login');
-    return null; // Prevent rendering the page
+    return null;
   }
 
+  // Status Badge Colors
+  const statusBadge = {
+    Active: 'badge-success',
+    Completed: 'badge-info',
+    Pending: 'badge-warning',
+  };
+
   return (
-    <div>
-      {/* Hero Section */}
-      <div
-        className="hero min-h-screen"
-        style={{
-          backgroundImage: `url(${image})`,
-        }}
-      >
-        <div className="hero-overlay bg-opacity-60"></div>
-        <div className="hero-content text-neutral-content text-center">
-          <div className="max-w-md">
-            <h1 className="mb-5 text-5xl font-bold">{title}</h1>
-            <p className="mb-5">{description}</p>
-            <div className="flex flex-wrap gap-2 justify-center mt-4">
-              <span className="badge badge-primary">{status}</span>
-              <span className="badge badge-secondary">{division}</span>
+    <div className="min-h-screen flex justify-center items-center  py-10">
+      {/* Galaxy Star Background Effect */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="stars">
+          {Array(100) // Adjust the number of stars for density
+            .fill(null)
+            .map((_, i) => (
+              <div
+                key={i}
+                className="star"
+                style={{
+                  '--i': i,
+                  left: `${Math.random() * 100}%`, // Random horizontal positioning
+                  top: `${Math.random() * 100}%`, // Random vertical positioning
+                  animationDuration: `${2 + Math.random() * 3}s`, // Random twinkling speed
+                  animationDelay: `${Math.random() * 5}s`, // Random animation start
+                  width: `${Math.random() * 3 + 2}px`, // Random star size
+                  height: `${Math.random() * 3 + 2}px`,
+                }}
+              ></div>
+            ))}
+        </div>
+      </div>
+
+      {/* Galaxy Star CSS */}
+      <style>{`
+  .stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .star {
+    position: absolute;
+    background-color: white; /* Star color */
+    border-radius: 50%; /* Makes the stars circular */
+    animation: fadeInOut linear infinite; /* Apply fade-in-out animation */
+    opacity: 0; /* Initially hidden */
+  }
+
+  @keyframes fadeInOut {
+    0%, 100% {
+      opacity: 10; /* Fully invisible */
+    }
+    50% {
+      opacity: 10; /* Fully visible */
+    }
+  }
+`}</style>
+
+      <div className=" grid xl:grid-cols-2 gap-6 items-center">
+        {/* Left Side - Campaign Details */}
+        <div
+          className="relative  md:h-[600px] xl:h-[550px] rounded-lg overflow-hidden shadow-lg"
+          data-aos="fade-right"
+        >
+          {/* Blurred Image Background */}
+          <img
+            src={image}
+            alt={title}
+            className="absolute inset-0 w-full h-full  object-cover blur-0"
+          />
+          <div className="absolute inset-0  bg-opacity-40"></div>
+          {/* Centered Text Content */}
+          <div className="relative flex flex-col items-center justify-center h-full text-center text-white p-6 space-y-4 backdrop-blur-sm">
+            <h1 className="text-4xl font-bold">{title}</h1>
+            <p className="text-lg">{description}</p>
+            <div className="flex gap-4">
+              <span className={`badge ${statusBadge[status]} text-lg`}>
+                {status}
+              </span>
+              <span className="badge badge-secondary text-lg">{division}</span>
             </div>
             <p className="mt-4 text-sm">
               <strong>Contact:</strong> {contactInfo}
             </p>
           </div>
         </div>
-      </div>
 
-      {/* Donation Form Section */}
-      <div className="container mx-auto p-4">
-        {user && (
-          <form
-            onSubmit={handleSubmit}
-            className="bg-white p-6 rounded-lg shadow-md space-y-4"
+        {/* Right Side - Donation Form */}
+        <form
+          onSubmit={handleSubmit}
+          className="bg-white bg-gradient-to-r from-blue-50 via-white to-purple-50 p-6  md:h-[600px] xl:h-[550px] rounded-lg shadow-lg space-y-4 "
+          data-aos="fade-left"
+        >
+          <h2 className="text-2xl font-bold text-center text-gray-800">
+            Donation Form
+          </h2>
+
+          {/* Quantity */}
+          <div>
+            <label className="block text-sm font-medium">Quantity</label>
+            <input
+              type="text"
+              name="quantity"
+              value={form.quantity}
+              onChange={handleInputChange}
+              placeholder="e.g., 2 jackets, 3 blankets"
+              className="input input-bordered w-full"
+              required
+            />
+          </div>
+
+          {/* Item Type */}
+          <div>
+            <label className="block text-sm font-medium">Item Type</label>
+            <input
+              type="text"
+              name="itemType"
+              value={form.itemType}
+              onChange={handleInputChange}
+              placeholder="e.g., blanket, jacket, sweater"
+              className="input input-bordered w-full"
+              required
+            />
+          </div>
+
+          {/* Pickup Location */}
+          <div>
+            <label className="block text-sm font-medium">Pickup Location</label>
+            <input
+              type="text"
+              name="pickupLocation"
+              value={form.pickupLocation}
+              onChange={handleInputChange}
+              placeholder="e.g., House 12, Road 5, Dhanmondi, Dhaka"
+              className="input input-bordered w-full"
+              required
+            />
+          </div>
+
+          {/* Additional Notes */}
+          <div>
+            <label className="block text-sm font-medium">
+              Additional Notes
+            </label>
+            <textarea
+              name="notes"
+              value={form.notes}
+              onChange={handleInputChange}
+              placeholder="Optional"
+              className="textarea textarea-bordered w-full"
+            ></textarea>
+          </div>
+
+          {/* Submit Button */}
+          <button
+            type="submit"
+            className="btn btn-primary w-full bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-white"
           >
-            <h2 className="text-2xl font-semibold text-center">
-              Donation Form
-            </h2>
-
-            {/* Quantity */}
-            <div>
-              <label className="block text-sm font-medium">Quantity</label>
-              <input
-                type="text"
-                name="quantity"
-                value={form.quantity}
-                onChange={handleInputChange}
-                placeholder="e.g., 2 jackets, 3 blankets"
-                className="input input-bordered w-full"
-                required
-              />
-            </div>
-
-            {/* Item Type */}
-            <div>
-              <label className="block text-sm font-medium">Item Type</label>
-              <input
-                type="text"
-                name="itemType"
-                value={form.itemType}
-                onChange={handleInputChange}
-                placeholder="e.g., blanket, jacket, sweater"
-                className="input input-bordered w-full"
-                required
-              />
-            </div>
-
-            {/* Pickup Location */}
-            <div>
-              <label className="block text-sm font-medium">
-                Pickup Location
-              </label>
-              <input
-                type="text"
-                name="pickupLocation"
-                value={form.pickupLocation}
-                onChange={handleInputChange}
-                placeholder="e.g., House 12, Road 5, Dhanmondi, Dhaka"
-                className="input input-bordered w-full"
-                required
-              />
-            </div>
-
-            {/* Additional Notes */}
-            <div>
-              <label className="block text-sm font-medium">
-                Additional Notes
-              </label>
-              <textarea
-                name="notes"
-                value={form.notes}
-                onChange={handleInputChange}
-                placeholder="Optional"
-                className="textarea textarea-bordered w-full"
-              ></textarea>
-            </div>
-
-            {/* Submit Button */}
-            <button type="submit" className="btn btn-primary w-full">
-              Submit
-            </button>
-          </form>
-        )}
+            Submit
+          </button>
+        </form>
       </div>
     </div>
   );

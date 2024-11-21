@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { authContext } from '../AuthProvider/AuthProvider';
 import { updateProfile } from 'firebase/auth';

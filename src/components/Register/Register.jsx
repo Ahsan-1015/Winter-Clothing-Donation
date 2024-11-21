@@ -1,113 +1,16 @@
-// import React, { useContext, useState } from 'react';
-// import { authContext } from '../AuthProvider/AuthProvider';
-// import { Link } from 'react-router-dom';
-
-// const Register = () => {
-//   const { handleRegister, manageProfile } = useContext(authContext);
-//   const [error, setError] = useState('');
-//   const handleSubmit = e => {
-//     e.preventDefault();
-//     setError('');
-//     const name = e.target.name.value;
-//     const image = e.target.image.value;
-//     const email = e.target.email.value;
-//     const password = e.target.password.value;
-//     const conPassword = e.target.conPassword.value;
-//     if (password.length < 6) {
-//       setError('Password must contain at least 6 characters');
-//       return;
-//     }
-//     if (password !== conPassword) {
-//       setError("Passwords didn't match");
-//       return;
-//     }
-//     if (!/[a-z]/.test(password)) {
-//       setError('Password must contain at least one lowercase letter');
-//       return;
-//     }
-//     if (!/[A-Z]/.test(password)) {
-//       setError('Password must contain at least one uppercase letter');
-//       return;
-//     }
-//     console.log(name, image, email, password, conPassword);
-
-//     handleRegister(email, password).then(res => {
-//       manageProfile(name, image);
-//     });
-//   };
-//   return (
-//     <div>
-//       <form action="" onSubmit={handleSubmit}>
-//         <div>
-//           Name{' '}
-//           <input
-//             type="text"
-//             placeholder="Type here"
-//             className="input input-bordered input-error w-full max-w-xs"
-//             name="name"
-//             required
-//           />
-//         </div>
-//         <div>
-//           Image
-//           <input
-//             type="text"
-//             placeholder="Type here"
-//             className="input input-bordered input-error w-full max-w-xs"
-//             name="image"
-//             required
-//           />
-//         </div>
-//         <div>
-//           Email{' '}
-//           <input
-//             type="text"
-//             placeholder="Type here"
-//             className="input input-bordered input-error w-full max-w-xs"
-//             name="email"
-//             required
-//           />
-//         </div>
-//         <div>
-//           Password{' '}
-//           <input
-//             type="text"
-//             placeholder="Type here"
-//             className="input input-bordered input-error w-full max-w-xs"
-//             name="password"
-//             required
-//           />
-//         </div>
-//         <div>
-//           Confirm Password
-//           <input
-//             type="text"
-//             placeholder="Type here"
-//             className="input input-bordered input-error w-full max-w-xs"
-//             name="conPassword"
-//             required
-//           />
-//         </div>
-//         <button type="submit">Register</button>
-//         <Link to="/login">
-//           <button className="btn">login</button>
-//         </Link>
-//       </form>
-//       {error && <p className="text-red-500">{error}</p>}
-//     </div>
-//   );
-// };
-
-// export default Register;
 import { useContext, useState } from 'react';
 import { authContext } from '../AuthProvider/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
-import { FaGoogle } from 'react-icons/fa';
+import { FaGoogle, FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Register = () => {
   const { handleRegister, manageProfile, handleGoogleLogin } =
     useContext(authContext);
   const [error, setError] = useState('');
+  const [showPassword, setShowPassword] = useState({
+    password: false,
+    confirm: false,
+  });
   const navigate = useNavigate();
 
   const handleSubmit = e => {
@@ -154,15 +57,22 @@ const Register = () => {
     });
   };
 
+  const toggleVisibility = field => {
+    setShowPassword(prevState => ({
+      ...prevState,
+      [field]: !prevState[field],
+    }));
+  };
+
   return (
-    <div className="flex justify-center items-center py-2 md:py-10  ">
-      <div className="card bg-gradient-to-r from-blue-100  to-purple-100 shadow-xl shadow-orange-300  hover:shadow-2xl hover:shadow-emerald-600 hover:ease-in-out duration-300 hover:scale-105  rounded-lg p-8 w-full max-w-md">
+    <div className="flex justify-center items-center py-2 md:py-10">
+      <div className="animate__animated animate__zoomIn card bg-gradient-to-r from-blue-100 to-purple-100 shadow-xl shadow-orange-300 hover:shadow-2xl hover:shadow-emerald-600 hover:ease-in-out duration-300 hover:scale-105 rounded-lg p-8 w-full max-w-md">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">
           Register
         </h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label className="block text-lg  font-semibold text-gray-600">
+            <label className="block text-lg font-semibold text-gray-600">
               Name
             </label>
             <input
@@ -197,34 +107,54 @@ const Register = () => {
               required
             />
           </div>
-          <div className="mb-4">
+          <div className="mb-4 relative">
             <label className="block text-md font-semibold text-gray-600">
               Password
             </label>
             <input
-              type="password"
+              type={showPassword.password ? 'text' : 'password'}
               name="password"
               placeholder="Password"
               className="input input-bordered w-full"
               required
             />
+            <div
+              className="absolute inset-y-0 right-5 top-[25px] flex items-center cursor-pointer"
+              onClick={() => toggleVisibility('password')}
+            >
+              {showPassword.password ? (
+                <FaEyeSlash className="text-gray-500 w-5 h-5" />
+              ) : (
+                <FaEye className="text-gray-500 w-5 h-5" />
+              )}
+            </div>
           </div>
-          <div className="mb-4">
+          <div className="mb-4 relative">
             <label className="block text-md font-semibold text-gray-600">
               Confirm Password
             </label>
             <input
-              type="password"
+              type={showPassword.confirm ? 'text' : 'password'}
               name="conPassword"
               placeholder="Confirm Password"
               className="input input-bordered w-full"
               required
             />
+            <div
+              className="absolute inset-y-0 right-5 top-[25px] flex items-center cursor-pointer"
+              onClick={() => toggleVisibility('confirm')}
+            >
+              {showPassword.confirm ? (
+                <FaEyeSlash className="text-gray-500 w-5 h-5" />
+              ) : (
+                <FaEye className="text-gray-500 w-5 h-5" />
+              )}
+            </div>
           </div>
           {error && <p className="text-red-500 text-md mb-4">{error}</p>}
           <button
             type="submit"
-            className="btn btn-primary w-full bg-gray-700 hover:bg-black text-white text-lg  transition duration-300"
+            className="animate__animated animate__backInRight btn btn-primary w-full bg-gray-700 hover:bg-black text-white text-lg transition duration-300"
           >
             Register
           </button>

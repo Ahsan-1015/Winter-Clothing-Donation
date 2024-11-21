@@ -83,7 +83,7 @@ const About = () => {
         <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Mission Statement */}
           <div
-            className="p-8 bg-white rounded-2xl shadow-lg transform transition hover:scale-105 hover:shadow-2xl"
+            className="p-8 bg-white rounded-2xl shadow-lg  bg-gradient-to-b from-blue-50 via-white to-blue-50 transform transition hover:scale-105 hover:shadow-xl hover:shadow-orange-400 ease-in-out duration-300"
             data-aos="fade-right"
           >
             <div className="flex flex-col xl:flex-row justify-between">
@@ -104,8 +104,8 @@ const About = () => {
                 </p>
               </div>
               <img
-                className="h-64 flex-1 lg:mt-3 2xl:mt-0"
-                src="https://img.freepik.com/free-vector/business-teamwork-flat-character-animation-cartoon_40876-2407.jpg?semt=ais_hybrid"
+                className="h-64 w-32 flex-1 lg:mt-3 2xl:mt-0 rounded-lg bg-transparent"
+                src="https://cdn-icons-gif.flaticon.com/9534/9534954.gif"
                 alt=""
               />
             </div>
@@ -113,7 +113,7 @@ const About = () => {
 
           {/* How Users Can Contribute */}
           <div
-            className="p-8 bg-white rounded-2xl shadow-lg transform transition hover:scale-105 hover:shadow-2xl"
+            className="bg-gradient-to-b from-blue-50 via-white to-blue-50 p-8 bg-white rounded-2xl shadow-lg transform transition hover:scale-105  hover:shadow-xl hover:shadow-orange-400 duration-300 "
             data-aos="fade-left"
           >
             <div className="flex flex-col xl:flex-row justify-between ">
@@ -138,7 +138,7 @@ const About = () => {
                 </ul>
               </div>
               <img
-                className=" h-60 w-full flex-1 lg:mt-5 2xl:mt-3"
+                className=" h-60 w-full flex-1 lg:mt-5 2xl:mt-3 rounded-xl bg-transparent"
                 src="https://img.freepik.com/free-vector/business-teamwork-flat-character-animation-cartoon_40876-2407.jpg?semt=ais_hybrid"
                 alt=""
               />

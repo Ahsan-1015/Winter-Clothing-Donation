@@ -72,13 +72,13 @@ const Login = () => {
               required
             />
             <div
-              className="absolute inset-y-0 right-4 flex items-center cursor-pointer"
+              className="absolute inset-y-0 right-5 flex items-center cursor-pointer"
               onClick={() => setShowPassword(!showPassword)}
             >
               {showPassword ? (
-                <FaEyeSlash className="text-gray-500 mt-6" />
+                <FaEyeSlash className="text-gray-500 w-5 h-5 mt-6" />
               ) : (
-                <FaEye className="text-gray-500 mt-6" />
+                <FaEye className="text-gray-500 w-5 h-5 mt-6" />
               )}
             </div>
           </div>

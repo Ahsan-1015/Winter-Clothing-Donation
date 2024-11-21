@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import { useState, useContext } from 'react';
 import './Navbar.css';
 import { NavLink } from 'react-router-dom';
 import { authContext } from '../AuthProvider/AuthProvider';
@@ -18,7 +18,7 @@ const navUrl = (
       <NavLink to="/dashboard">Dashboard</NavLink>
     </li>
     <li>
-      <NavLink to="/profile">Profile</NavLink>
+      <NavLink to="/help">How It help</NavLink>
     </li>
   </>
 );
@@ -163,7 +163,7 @@ const Navbar = () => {
             Dashboard
           </NavLink>
           <NavLink
-            to="/profile"
+            to="/help"
             className={({ isActive }) =>
               `block px-4 py-2 ${
                 isActive ? 'bg-teal-700 text-white' : 'hover:bg-teal-600'
@@ -171,7 +171,7 @@ const Navbar = () => {
             }
             onClick={() => setIsMenuOpen(false)}
           >
-            Profile
+            How it help
           </NavLink>
           {user?.email ? (
             <div className="flex items-center px-4 py-2 gap-2">

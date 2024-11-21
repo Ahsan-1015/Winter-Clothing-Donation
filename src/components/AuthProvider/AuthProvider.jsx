@@ -1,4 +1,5 @@
-import React, { createContext, useEffect, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
+// eslint-disable-next-line react-refresh/only-export-components
 export const authContext = createContext();
 import {
   createUserWithEmailAndPassword,
@@ -10,6 +11,7 @@ import {
   updateProfile,
 } from 'firebase/auth';
 import auth from '../../firebsae/firebase.config';
+// eslint-disable-next-line react/prop-types
 const AuthProvider = ({ routes }) => {
   const googleProvider = new GoogleAuthProvider();
 
@@ -50,7 +52,6 @@ const AuthProvider = ({ routes }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, currentUser => {
-      console.log(currentUser);
       if (currentUser) {
         setUser(currentUser);
       } else {

@@ -4,7 +4,7 @@ import MainLayout from '../components/MainLayout/MainLayout';
 import Home from '../components/Home/Home';
 import Campaign from '../components/Campaign/Campaign';
 import Dashboard from '../components/Dashboard/Dashboard';
-import Profile from '../components/Profile/Profile';
+import Profile from '../components/HowToHelp/HowToHelp';
 import Details from '../components/Details/Details';
 import Login from '../components/Login/Login';
 import Register from '../components/Register/Register';
@@ -12,7 +12,7 @@ import PrivateRoute from '../components/PrivateRoute/PrivateRoute';
 import ErrorPage from '../components/ErrorPage/ErrorPage';
 import ForgotPassword from '../components/ForgotPassword/ForgotPassword';
 import UpdateProfile from '../components/UpdateProfile/UpdateProfile';
-import MyProfile from '../components/MyProfile/MyProfile';
+import HowToHelp from '../components/HowToHelp/HowToHelp';
 
 const router = createBrowserRouter([
   {
@@ -62,16 +62,14 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: '/profile',
+        path: '/help',
         element: (
-          <PrivateRoute>
-            <>
-              <Helmet>
-                <title>Profile || Winter Clothing Donation</title>
-              </Helmet>
-              <Profile />
-            </>
-          </PrivateRoute>
+          <>
+            <Helmet>
+              <title>help || Winter Clothing Donation</title>
+            </Helmet>
+            <HowToHelp />
+          </>
         ),
       },
       {
@@ -137,17 +135,6 @@ const router = createBrowserRouter([
               <UpdateProfile />
             </>
           </PrivateRoute>
-        ),
-      },
-      {
-        path: '/my-profile',
-        element: (
-          <>
-            <Helmet>
-              <title>My Profile || Winter Clothing Donation</title>
-            </Helmet>
-            <MyProfile />
-          </>
         ),
       },
     ],
